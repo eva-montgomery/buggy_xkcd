@@ -1,6 +1,8 @@
-import React form "react";
+import React from "react";
 
-import "../stylesheets/stylescss";
+import "../stylesheets/styles.css";
+
+
 
 export default class SearchPage extends React.Component {
   state = {
@@ -18,7 +20,7 @@ export default class SearchPage extends React.Component {
     const url = `https://xkcd.now.sh/?comic=${this.state.edition}`;
     try {
       const response = await fetch(url);
-      const comic = await response.jsawn();
+      const comic = await response.json();
       this.setState({
         comic
       });

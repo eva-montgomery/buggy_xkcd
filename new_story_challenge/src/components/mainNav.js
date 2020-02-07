@@ -12,7 +12,8 @@ const mainNav = props => {
             <Link to={route.linkRoute}>{route.linkName}</Link>
           </li>
         ))
-      </ul>}
+      }
+      </ul>
     </nav>
   );
 };
@@ -20,3 +21,5 @@ const mainNav = props => {
 mainNav.propTypes = {
   routes: PropTypes.array
 };
+
+export default mainNav;

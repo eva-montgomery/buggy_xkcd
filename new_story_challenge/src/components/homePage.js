@@ -8,7 +8,7 @@ export default class HomePage extends React.Component {
     comic: null
   };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const url = "https://xkcd.now.sh/?comic=latest";
     const response = await fetch(url);
     const data = await response.json();
@@ -19,20 +19,20 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <div>
-        {this.loading || !this.comic ? (
+        {this.state.loading || !this.state.comic ? (
           <div>loading...</div>
         ) : (
           <div>
-            <div className="titleDiv">{this.state.comic.title}</div>
+            <div className="titleDiv">{this.state.comic.alt}</div>
             <img
               src={this.state.comic.img}
               alt={this.state.comic.title}
               title={this.state.comic.alt}
-              className="latestImage"
+              className="latest"
             />
             <div className="timeStamp">
-              This comic was published on {this.state.comic.months},{" "}
-              {this.state.comic.day}, {this.state.comic.year}
+            This comic was published on ({this.state.comic.month}/
+              {this.state.comic.day}/{this.state.comic.year})
             </div>
           </div>
         )}
